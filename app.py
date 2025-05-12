@@ -4,23 +4,13 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 # create a route decorator (this is how it called!)
-@app.route("/")
+@app.route('/')
 def index():
-    first_name = "fll"
-    return render_template("index.html", first_name=first_name)
+    return render_template('index.html')
 
-@app.route("/header")
-def base_bar():
-    return render_template("header.html")
-
-@app.route('/user/<name>')
-def user(name):
-    #return f"hello, {name}"
-    return render_template("user.html", name=name)
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 # invalid URL
 @app.errorhandler(404)
